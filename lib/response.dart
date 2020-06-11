@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart';
+import 'package:http_parser/http_parser.dart';
 import 'iso-8859-9.dart';
 
 /// Response extension extends the functionality of the [Response] type by
@@ -13,8 +14,23 @@ import 'iso-8859-9.dart';
 /// Adds [asList] method to cast the JSON decoded body as a [List] of the given
 /// [Type] by applying the given transformation function to each item.
 extension ResponseExtension on Response {
-  /// Get the Latin-5 decoded body.
-  String get _body => decodeISO88599(bodyBytes);
+  /// Get the content-type of the response.
+  String get _contentType => headers['content-type'];
+
+  /// Get the charset of the response.
+  String get _charset => _contentType != null
+      ? MediaType.parse(_contentType).parameters['charset']
+      : null;
+
+  /// Check if the charset is ISO-8859-9.
+  bool get _isISO88599 => _charset == 'ISO-8859-9';
+
+  /// Returns the body of the response.
+  ///
+  /// This is a helper getter for decoding the ISO-8859-9 encoded body before
+  /// decoding as JSON. If the body encoded as ISO-8859-9, decodes the body from
+  /// bodyBytes to save time, elsewise returns the default body of the response.
+  String get _body => _isISO88599 ? decodeISO88599(bodyBytes) : body;
 
   /// JSON decoded [body] of the request, as-is.
   ///
