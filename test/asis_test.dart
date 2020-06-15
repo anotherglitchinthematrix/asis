@@ -1,5 +1,5 @@
-import 'package:test/test.dart';
+import 'iterable_test.dart' as iterable_test;
 
-import 'package:asis/asis.dart';
-
-void main() {}
+void main() {
+  iterable_test.main();
+}
