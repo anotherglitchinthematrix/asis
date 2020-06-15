@@ -1,3 +1,15 @@
-## [1.0.0] - TODO: Add release date.
+## [1.1.3] Iterable extension
+* Adds `as<T>()` to [Iterable]
+* Adds `asList<T>()` to [Iterable]
 
-* TODO: Describe initial release.
+## [1.1.2] Automation
+* Adds GitHub action for Dart CI.
+
+## [1.1.1] Initial release
+* Adds `as<T>()` to [List]
+* Adds `jsonBody` to [http.Response]
+* Adds `as<T>()` to [http.Response]
+* Adds `asList<T>()` to [http.Response]
+* Adds `Future<Iterable<T>>`
+* Adds `Future<List<T>>`
+* Adds `Future<Response<T>>`
