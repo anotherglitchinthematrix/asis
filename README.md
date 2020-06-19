@@ -1,4 +1,5 @@
-# ASIS
+![Dart CI](https://github.com/anotherglitchinthematrix/asis/workflows/Dart%20CI/badge.svg?branch=master)
+# ASIS 
 
 A small utility library to handle JSON encoded http responses easily, transforms the response into an internal type of data and extends the capabilities of `Response`, `Iterable`, `List`, `Future<Response>`, `Future<Iterable>`, `Future<List>` to handle data manipulation on the same future chain.
 
