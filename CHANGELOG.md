@@ -1,3 +1,6 @@
+## [2.0.0] Null-safety
+* Package updated to be null safe.
+
 ## [1.1.3] Iterable extension
 * Adds `as<T>()` to [Iterable]
 * Adds `asList<T>()` to [Iterable]
