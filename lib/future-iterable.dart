@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'asis.dart' show IterableExtension;
 
 /// Future iterable extension maps the native [Iterable] properties and methods
@@ -46,13 +48,13 @@ extension FutureIterable<E> on Future<Iterable<E>> {
   }
 
   /// Refer to [Iterable.firstWhere];
-  Future<E> firstWhere(bool test(E e), {E orElse()}) async {
+  Future<E> firstWhere(bool test(E e), {E Function()? orElse}) async {
     return (await this).firstWhere(test, orElse: orElse);
   }
 
   /// Refer to [Iterable.fold];
-  Future<T> fold<T>(T i, T combine(T p, E n)) async {
-    return (await this).fold(i, (p, n) => combine(p, n));
+  Future<T> fold<T>(T i, T Function(T, E) combine) async {
+    return (await this).fold<T>(i, combine);
   }
 
   /// Refer to [Iterable.followedBy];
@@ -71,7 +73,7 @@ extension FutureIterable<E> on Future<Iterable<E>> {
   }
 
   /// Refer to [Iterable.lastWhere];
-  Future<E> lastWhere(bool test(E e), {E orElse()}) async {
+  Future<E> lastWhere(bool test(E e), {E Function()? orElse}) async {
     return (await this).lastWhere(test, orElse: orElse);
   }
 
@@ -84,7 +86,7 @@ extension FutureIterable<E> on Future<Iterable<E>> {
   }
 
   /// Refer to [Iterable.singleWhere];
-  Future<E> singleWhere(bool test(E e), {E orElse()}) async {
+  Future<E> singleWhere(bool test(E e), {E Function()? orElse}) async {
     return (await this).singleWhere(test, orElse: orElse);
   }
 

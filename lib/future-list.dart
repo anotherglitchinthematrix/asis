@@ -34,7 +34,7 @@ extension FutureList<E> on Future<List<E>> {
   /// Refer to [List.fillRange].
   ///
   /// Additionally returns the list.
-  Future<List<E>> fillRange(int start, int end, [E value]) async {
+  Future<List<E>> fillRange(int start, int end, [E? value]) async {
     return (await this)..fillRange(start, end, value);
   }
 
@@ -68,12 +68,12 @@ extension FutureList<E> on Future<List<E>> {
   }
 
   /// Refer to [List.lastIndexOf].
-  Future<int> lastIndexOf(E e, [int start]) async {
+  Future<int> lastIndexOf(E e, [int? start]) async {
     return (await this).lastIndexOf(e, start);
   }
 
   /// Refer to [List.lastIndexWhere].
-  Future<int> lastIndexWhere(bool test(E e), [int start]) async {
+  Future<int> lastIndexWhere(bool test(E e), [int? start]) async {
     return (await this).lastIndexWhere(test, start);
   }
 
@@ -137,19 +137,19 @@ extension FutureList<E> on Future<List<E>> {
   /// Refer to [List.shuffle].
   ///
   /// Additionally returns the list.
-  Future<List<E>> shuffle([Random random]) async {
+  Future<List<E>> shuffle([Random? random]) async {
     return (await this)..shuffle(random);
   }
 
   /// Refer to [List.sort].
   ///
   /// Additionally returns the list.
-  Future<List<E>> sort([int compare(E a, E b)]) async {
+  Future<List<E>> sort([int compare(E a, E b)?]) async {
     return (await this)..sort(compare);
   }
 
   /// Refer to [List.sublist].
-  Future<List<E>> sublist(int start, [int end]) async {
+  Future<List<E>> sublist(int start, [int? end]) async {
     return (await this).sublist(start, end);
   }
 
