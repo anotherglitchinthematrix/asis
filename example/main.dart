@@ -25,10 +25,10 @@ class Task {
 var url = 'http://jsonplaceholder.typicode.com/todos';
 
 /// Returns a task object.
-Future<Task> task(int id) => http.get('$url/$id').as(Task.handler);
+Future<Task> task(int id) => http.get(Uri.parse('$url/$id')).as(Task.handler);
 
 /// Returns a list of tasks.
-Future<List<Task>> get tasks => http.get(url).asList(Task.handler);
+Future<List<Task>> get tasks => http.get(Uri.parse(url)).asList(Task.handler);
 
 void main() async {
   /// Get the third task and print the title.
@@ -43,7 +43,7 @@ void main() async {
   /// Count of the completed tasks.
   tasks
       .where((e) => e.completed)
-      .fold(0, (p, _) => p + 1)
+      .fold<int>(0, (p, _) => p + 1)
       .then((e) => 'Number of the completed tasks: $e')
       .then(print);
 }
