@@ -9,7 +9,7 @@ void main() {
       test('Transformation with as<T>', () {
         expect(list.asList<String>((e) => e.toString()), ['1', '2', '3']);
 
-        expect(list.asList<String>((e) => null), [null, null, null]);
+        expect(list.asList<String?>((e) => null), [null, null, null]);
 
         expect(
           list.asList<Map<String, int>>((e) => {e.toString(): e * e}),
@@ -27,7 +27,7 @@ void main() {
           ['11', '22', '33'],
         );
 
-        expect(list.as<String>((e) => null).asList<int>((e) => 1), [1, 1, 1]);
+        expect(list.as<String?>((e) => null).asList<int>((e) => 1), [1, 1, 1]);
 
         expect(
           list

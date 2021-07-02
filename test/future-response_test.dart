@@ -72,7 +72,7 @@ void main() {
         expect(
           await multipleResponseFuture
               .asIterable((e) => CustomObject.fromJson(e))
-              .asList<bool>((e) => e.boolean),
+              .asList<bool?>((e) => e.boolean),
           multiple.as((e) => CustomObject.fromJson(e).boolean),
         );
       });

@@ -52,7 +52,7 @@ void main() {
     });
 
     test('contains', () async {
-      expect(await Future(() => [1, 2, 3]).contains(null), false);
+      expect(await Future(() => [1, 2, 3]).contains(""), false);
 
       expect(await Future(() => [1, 2, 3]).contains(2), true);
 
@@ -112,15 +112,13 @@ void main() {
     });
 
     test('fold', () async {
-      expect(await Future(() => [1, 2, 3]).fold(0, (p, n) => p + n), 6);
+      expect(await Future(() => [1, 2, 3]).fold<int>(0, (p, n) => p + n), 6);
 
-      expect(await Future(() => [1, 2, 3]).fold(660, (p, n) => p + n), 666);
+      expect(await Future(() => [1, 2, 3]).fold<int>(660, (p, n) => p + n), 666);
     });
 
     test('followedBy', () async {
       expect(await Future(() => [1, 2, 3]).followedBy([]), [1, 2, 3]);
-
-      expect(await Future(() => [1, 2, 3]).followedBy(null), [1, 2, 3]);
 
       expect(
         await Future(() => [1, 2, 3]).followedBy([4, 5, 6]),

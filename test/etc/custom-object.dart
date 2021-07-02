@@ -1,8 +1,8 @@
 class CustomObject {
-  final String key;
-  final List list;
-  final bool boolean;
-  final int number;
+  final String? key;
+  final List? list;
+  final bool? boolean;
+  final int? number;
   final dynamic object;
 
   CustomObject({
